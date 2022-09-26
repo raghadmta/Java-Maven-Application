@@ -7,6 +7,7 @@ pipeline {
 
         AWS_S3_BUCKET = "S3-BucketName" // Your S3 bucket name
         ARTIFACT_NAME = "hello-world.jar"
+        
         AWS_EB_APP_NAME = "EBApp-Name" // Your EB App name
         AWS_EB_APP_VERSION = "${BUILD_ID}" // when you want to roll back
         AWS_EB_ENVIRONMENT = "EBEnv-Name" // Your EB Env name
