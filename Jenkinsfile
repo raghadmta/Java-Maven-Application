@@ -1,16 +1,18 @@
 pipeline {
     agent any
-    environment { //variables
+    environment {
 
         AWS_ACCESS_KEY_ID     = credentials('aws-secret-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
 
-        AWS_S3_BUCKET = "S3-BucketName" // Your S3 bucket name
+        // Your S3 bucket name
+        AWS_S3_BUCKET = "S3-BucketName" 
         ARTIFACT_NAME = "hello-world.jar"
-        
-        AWS_EB_APP_NAME = "EBApp-Name" // Your EB App name
-        AWS_EB_APP_VERSION = "${BUILD_ID}" // when you want to roll back
-        AWS_EB_ENVIRONMENT = "EBEnv-Name" // Your EB Env name
+
+        // Your EB App,Env name
+        AWS_EB_APP_NAME = "EBApp-Name"
+        AWS_EB_APP_VERSION = "${BUILD_ID}"
+        AWS_EB_ENVIRONMENT = "EBEnv-Name" 
     }
     stages {
         stage('Validate') {
@@ -37,14 +39,13 @@ pipeline {
             }
 
             post {
-                success { //when the step is successful archive the artfact
+                success {
                     archiveArtifacts artifacts: '**/target/**.jar', followSymlinks: false
 
                    
                 }
             }
         }
-        //5. Publish the artifacts
         stage('Publish artefacts to S3 Bucket') {
             steps {
 
