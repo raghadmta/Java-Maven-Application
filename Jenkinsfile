@@ -2,14 +2,14 @@ pipeline {
     agent any
     environment { //variables
 
-        AWS_ACCESS_KEY_ID     = credentials('Raghads-aws-secret-key-id')
-        AWS_SECRET_ACCESS_KEY = credentials('Raghads-aws-secret-access-key')
+        AWS_ACCESS_KEY_ID     = credentials('aws-secret-key-id')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
 
-        AWS_S3_BUCKET = "raghadalmutlaq-belt2d2-artifacts-123456"
+        AWS_S3_BUCKET = "S3-BucketName" // Your S3 bucket name
         ARTIFACT_NAME = "hello-world.jar"
-        AWS_EB_APP_NAME = "RaghadAlmutlaq-123456"
+        AWS_EB_APP_NAME = "EBApp-Name" // Your EB App name
         AWS_EB_APP_VERSION = "${BUILD_ID}" // when you want to roll back
-        AWS_EB_ENVIRONMENT = "	Raghadalmutlaq123456-env"
+        AWS_EB_ENVIRONMENT = "EBEnv-Name" // Your EB Env name
     }
     stages {
         stage('Validate') {

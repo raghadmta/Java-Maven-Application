@@ -28,6 +28,6 @@ phases:
     - echo Build ends on 'date'
 
 artifacts:
-  files:
+  files: 
     - ROOT.jar
   name: hello-world-artifact
