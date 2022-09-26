@@ -13,7 +13,13 @@ pipeline {
         AWS_EB_APP_NAME = "EBApp-Name"
         AWS_EB_APP_VERSION = "${BUILD_ID}"
         AWS_EB_ENVIRONMENT = "EBEnv-Name" 
+
+        // The SonarQube Project infos
+        PROJECTNAME="Name of the Project"
+        SONAR_IP = "SonarIP"
+        SONAR_TOKEN = "SONAR TOKEN"
     }
+    
     stages {
         stage('Validate') {
             steps {
@@ -24,6 +30,7 @@ pipeline {
 
             }
         }
+
          stage('Build') {
             steps {
                 
@@ -31,6 +38,31 @@ pipeline {
 
             }
         }
+
+        stage('Test') {
+            steps {
+
+                sh "mvn test"
+
+             }
+            post {
+                always {
+                junit '**/target/surefire-reports/TEST-*.xml'
+                 }
+            }
+        }
+
+        stage('Quality Scan'){
+            steps {
+                sh '''
+                mvn clean verify sonar:sonar \
+                -Dsonar.projectKey=$PROJECTNAME \
+                -Dsonar.host.url=http://$SONAR_IP \
+                -Dsonar.login=$SONAR_TOKEN
+                '''
+             }
+        }
+
         stage('Package') {
             steps {
                 
