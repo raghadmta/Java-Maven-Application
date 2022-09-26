@@ -10,3 +10,7 @@ To Deploy this application you can use multiple tools, two examples of them are 
 Go to these Branches for more Infos and steps about it:
 - [Jenkins](https://github.com/raghadmta/Java-Maven_application/tree/Jenkins) 
 - [CodeBuild](https://github.com/raghadmta/Java-Maven_application/tree/CodeBuild) 
+
+---
+###### This project was part of Saudi Digital Acadmy's ( SDA ) DevOps BootCamp 2022
+
