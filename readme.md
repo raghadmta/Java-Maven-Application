@@ -1,11 +1,12 @@
-# Steps to deploy this application
+# Java Maven Application
 
-1. Git clone the repository
-2. Navigate to the path where you have pom.xml
-3. Run "mvn clean"
-4. Run "mvn compile"
-5. Run "mvn package"
-6. Publish the test case report
-7. Java application is created as a jar application in target folder
-8. Deploy this application on AWS beanstalk application
-9. Access the application. Login credentials -- Username - admin1, Password - secret1
+The Application is a Simple Java Maven App that will Ask about Credentails to Acsees the Web-Page.
+
+- ![image](https://user-images.githubusercontent.com/55548241/192261652-eb20ec6b-60df-4df7-9766-4341769676dd.png)
+
+
+# Ways to Deploy it in AWS 
+To Deploy this application you can use multiple tools, two examples of them are **Jenkins** and **CodeBuild**. <br />
+Go to these Branches for more Infos and steps about it:
+- [Jenkins](https://github.com/raghadmta/Java-Maven_application/tree/Jenkins) 
+- [CodeBuild](https://github.com/raghadmta/Java-Maven_application/tree/CodeBuild) 
